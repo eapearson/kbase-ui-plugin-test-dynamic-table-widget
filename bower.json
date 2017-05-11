@@ -1,0 +1,29 @@
+{
+    "name": "kbase-ui-plugin-test-dynamic-table-widget",
+    "description": "A testing",
+    "author": [
+        "kbase"
+    ],
+    "keywords": [
+        "kbase",
+        "ui",
+        "plugin",
+        "demo",
+        "widget"
+    ],
+    "moduleType": "kbase-ui-plugin",
+    "main": "src/plugin/config.yml",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/kbase/kbase-ui-plugin-test-dynamic-table-widget"
+    },
+    "dependencies": {
+        "jquery": "^2.1.0",
+        "bluebird": "^3.0.0"
+    },
+    "devDependencies": {},
+    "ignore": [
+        ".gitignore"
+    ],
+    "license": "SEE LICENSE IN LICENSE"
+}

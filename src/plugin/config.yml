@@ -1,0 +1,27 @@
+## Demo Plugin
+---
+package:
+    author: Your Name
+    name: pavel_demo
+    description: A plugin installing menus, routes, and panels for demonstration
+    date: May 2, 2017
+    version: 0.0.1
+source:
+    modules:
+install:
+    widgets:
+        -
+            module: panel
+            id: pavel_demo_panel
+            type: factory
+    routes:
+        -
+            path: ['pavel-demo']
+            widget: pavel_demo_panel
+    menu:
+        -
+            name: paveldemo
+            definition:
+                path: pavel-demo
+                label: Pave'ls Demo
+                icon: paw
