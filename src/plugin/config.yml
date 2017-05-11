@@ -1,27 +1,26 @@
 ## Demo Plugin
 ---
 package:
-    author: Your Name
-    name: pavel_demo
+    author: Erik Pearson
+    name: test-dynamic-table-widget
     description: A plugin installing menus, routes, and panels for demonstration
-    date: May 2, 2017
-    version: 0.0.1
+    date: May 11, 2017
 source:
     modules:
 install:
     widgets:
         -
             module: panel
-            id: pavel_demo_panel
+            id: dynamic_table_test_panel
             type: factory
     routes:
         -
-            path: ['pavel-demo']
-            widget: pavel_demo_panel
+            path: ['test-dynamic-table']
+            widget: dynamic_table_test_panel
     menu:
         -
-            name: paveldemo
+            name: test_dynamic_table
             definition:
-                path: pavel-demo
-                label: Pave'ls Demo
-                icon: paw
+                path: test-dynamic-table
+                label: Test Dynamic Table Widget
+                icon: table
