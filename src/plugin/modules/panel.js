@@ -47,11 +47,38 @@ define([
             new DynamicTable($dummyDiv, {
                 headers: dummyHeaders,
                 updateFunction: function(pageNum, query, sortColId, sortColDir) {
+                    var sortColumn = dummyHeaders.findIndex(function(item) {
+                        return (item.id === sortColId);
+                    });
                     return Promise.try(function() {
+                        var sorted = dummyRows
+                            .filter(function(row) {
+                                if (query == undefined ||
+                                    (typeof query === 'string' && query.length === 0)) {
+                                    return true;
+                                }
+
+                                return (row.some(function(item) {
+                                    // shold be a columnn type so we can do proper coercion...
+                                    // cheat and ask js to do it for us...
+                                    return (item == query);
+                                }));
+                            })
+                            .sort(function(a, b) {
+                                if (a[sortColumn] < b[sortColumn]) {
+                                    return sortColDir * -1;
+                                } else if (a[sortColumn] < b[sortColumn]) {
+                                    return sortColDir;
+                                } else {
+                                    return 0;
+                                }
+                            });
+
+
                         return {
                             start: 0,
-                            total: dummyRows.length,
-                            rows: dummyRows
+                            total: sorted.length,
+                            rows: sorted
                         };
                     });
                 }
